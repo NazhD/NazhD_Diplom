@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+<div class="base" >
+    <img src="{% static 'warhammer/display4.jpg' %}" alt="1" class="display">
+    <img src="{% static 'warhammer/display.jpg' %}" alt="1" class="display">
+    <img src="{% static 'warhammer/display2.jpg' %}" alt="1" class="display">
+    <div class="content">
+        <div class="shapka">
+            <ul class="uli">
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="">Регистрация</a></li>
+                <li><a href="">Вход</a></li>
+            </ul>
+        </div>
+        <div class="wrap">
+            <div class="left-content">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="right-content">
+                <ul class="colum">
+                    <li><a href="{% url 'load-images' %}">Картинки</a></li>
+                    <li><a href="">Видео</a></li>
+                    <li><a href="">Книги</a></li>
+                    <li><a href="">Истории</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
