@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+<div class="base" >
+    <img src="{% static 'warhammer/display40.jpg' %}" alt="1" class="display">
+    <div class="content">
+        <div class="shapka">
+            <ul class="uli">
+                <li><a href="{% url 'index' %}">Главная</a>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'logout_user' %}" method="post">
+                        {% csrf_token %}
+                        <li><button class="btr">Выход</button></li>
+                    </form>
+                {% else %}
+                    <li><a href="{% url 'registration' %}">Регистрация</a></li>
+                    <form action="{% url 'login_user' %}"  method="post">
+                        {% csrf_token %}
+                        <input type="text" name="username" class="btr">
+                        <input type="password" name="password" class="btr">
+                        <button type="submit" class="btr">Вход</button>
+                    </form>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="wrap-ret">
+                {% block content %}
+                {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

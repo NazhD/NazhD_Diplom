@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import ImageFile
 
 
@@ -17,7 +17,3 @@ def index(request):
 
 def load_images(request):
     return render(request, 'warhammer/load-images.html', {"img": baza, "menu": menu})
-
-
-
-

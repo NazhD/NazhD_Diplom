@@ -9,15 +9,28 @@
 </head>
 <body>
 <div class="base" >
-    <img src="{% static 'warhammer/display4.jpg' %}" alt="1" class="display">
+    <img src="{% static 'warhammer/display41.jpg' %}" alt="1" class="display">
     <img src="{% static 'warhammer/display.jpg' %}" alt="1" class="display">
     <img src="{% static 'warhammer/display2.jpg' %}" alt="1" class="display">
     <div class="content">
         <div class="shapka">
             <ul class="uli">
-                <li><a href="{% url 'index' %}">Главная</a></li>
-                <li><a href="">Регистрация</a></li>
-                <li><a href="">Вход</a></li>
+                <li><a href="{% url 'index' %}">Главная</a>
+                {% if user.is_authenticated %}
+                    <li><form action="{% url 'logout_user' %}" method="post">
+                        {% csrf_token %}
+                        <button class="btr">Выход</button></li>
+                    </form>
+                {% else %}
+                    <li><a href="{% url 'registration' %}">Регистрация</a></li>
+
+                    <form action="{% url 'login_user' %}"  method="post" class="form">
+                        {% csrf_token %}
+                        <input type="text" name="username">
+                        <input type="password" name="password">
+                        <button type="submit">Вход</button>
+                    </form>
+                {% endif %}
             </ul>
         </div>
         <div class="wrap">
