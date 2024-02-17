@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="ru">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <link rel="stylesheet" href="{% static 'css/video-style.css' %}">
 </head>
 <body>
 <div class="base" >
@@ -15,11 +15,11 @@
     <div class="content">
         <div class="shapka">
             <ul class="uli">
-                <li><a href="{% url 'index' %}">Главная</a>
+                <li><a href="{% url 'index' %}">Главная</a></li>
                 {% if user.is_authenticated %}
-                    <li><form action="{% url 'logout_user' %}" method="post">
+                    <form action="{% url 'logout_user' %}" method="post">
                         {% csrf_token %}
-                        <button class="btr">Выход</button></li>
+                        <li><button class="btr">Выход</button></li>
                     </form>
                 {% else %}
                     <li><a href="{% url 'registration' %}">Регистрация</a></li>
@@ -33,15 +33,18 @@
                 {% endif %}
             </ul>
         </div>
-        <div class="wrap">
-            <div class="left-content">
+        <div class="wrap" id="wrap">
+            <div class="left-content" id="left">
+
                 {% block content %}
+
                 {% endblock %}
+
             </div>
-            <div class="right-content">
-                <ul class="colum">
+            <div class="right-content" id="right">
+                <ul class="colum" id="colum">
                     <li><a href="{% url 'load-images' %}">Картинки</a></li>
-                    <li><a href="">Видео</a></li>
+                    <li><a href="{% url 'load-video' %}">Видео</a></li>
                     <li><a href="">Книги</a></li>
                     <li><a href="">Истории</a></li>
                 </ul>
@@ -50,5 +53,6 @@
         </div>
     </div>
 </div>
+<script src="{% static 'scripts/video_player.js' %}"></script>
 </body>
 </html>

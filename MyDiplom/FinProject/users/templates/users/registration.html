@@ -3,12 +3,12 @@
 {% block content %}
 <form method="post">
     <div class="registration">
-    {% csrf_token %}
-    {{ form.as_p }}
+        {% csrf_token %}
+        <h2>Регистрация</h2>
+        {{ form.as_p }}
         <button type="submit" class="bt">Регистрация</button>
-        <div class="stek">{{ error }}</div>
+        <div class="stek"><img src="{% static 'warhammer/display.jpg' %}" alt="1" class="display"></div>
+        <div class="stek2">{{ error }}</div>
     </div>
-
-
 </form>
 {% endblock %}

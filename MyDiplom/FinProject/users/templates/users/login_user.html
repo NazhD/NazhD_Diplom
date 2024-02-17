@@ -1,13 +1,14 @@
 {% extends 'users/base.html' %}
 {% load static %}
 {% block content %}
-
 <form method="post">
-      <div class="registration">
+    <div class="registration">
         {% csrf_token %}
+        <h2>Авторизация</h2>
         {{ login_form.as_p }}
         <button type="submit" class="bt">Авторизация</button>
-          <div class="stek">{{ error }}</div>
-      </div>
+        <div class="stek"><img src="{% static 'warhammer/display.jpg' %}" alt="1" class="display"></div>
+        <div class="stek2">{{ error }}</div>
+    </div>
 </form>
 {% endblock %}

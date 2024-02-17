@@ -1,0 +1,22 @@
+{% extends 'warhammer/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="all-vid">
+    <div class="block-vid">
+        <div class="lf"><button class="vid-btm" id="sv">По центру</button></div>
+        <div class="vid">
+            <video id="video-player" poster="{{ vid.image.url }}">
+                <source src="{{ vid.file.url }}" type="video/mp4">
+            </video>
+        </div>
+        <div class="but-vid">
+            <div><button id="btm_play" class="vid-btm">Play</button></div>
+            <div><button id="pause" class="vid-btm">Pause</button></div>
+            <div><button id="stop" class="vid-btm">Stop</button></div>
+            <div><input type="range" id="volume" min=0 max=100 value="30">Звук</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from .models import ImageFile
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import ImageFile, VideoFile
 
 
 menu = [
@@ -9,6 +9,7 @@ menu = [
 ]
 
 baza = ImageFile.objects.all()
+video_list = VideoFile.objects.all
 
 
 def index(request):
@@ -17,3 +18,12 @@ def index(request):
 
 def load_images(request):
     return render(request, 'warhammer/load-images.html', {"img": baza, "menu": menu})
+
+
+def load_video(request):
+    return render(request, 'warhammer/load-video.html', {'video_list': video_list})
+
+
+def video_play(request, video_id):
+    vid = get_object_or_404(VideoFile, pk=video_id)
+    return render(request, 'warhammer/video-play.html',{"vid": vid})

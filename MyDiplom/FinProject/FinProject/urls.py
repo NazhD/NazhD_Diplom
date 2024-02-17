@@ -23,8 +23,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('image', views.load_images, name='load-images'),
-    path('user/', include('users.urls'))
+    path('image/', views.load_images, name='load-images'),
+    path('video/', views.load_video, name='load-video'),
+    path('video/<int:video_id>/', views.video_play, name='video-play'),
+    path('user/', include('users.urls')),
+
 ]
 
 if settings.DEBUG:
