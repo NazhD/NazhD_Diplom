@@ -5,34 +5,40 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/style-users.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user_blog.css' %}">
 
 </head>
 <body>
-<div class="base" >
+<div class="base">
     <div class="content">
         <div class="shapka">
             <ul class="uli">
-                <li><a href="{% url 'index' %}">Главная</a>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'page_user' %}">Пользователи</a></li>
                 {% if user.is_authenticated %}
-                    <form action="{% url 'logout_user' %}" method="post">
-                        {% csrf_token %}
-                        <li><button class="btr">Выход</button></li>
-                    </form>
+                <li><a href="{% url 'user_blog' user.id %}">Личный кобинет</a></li>
+                <form action="{% url 'logout_user' %}" method="post">
+                    {% csrf_token %}
+                    <li>
+                        <button class="btr">Выход</button>
+                    </li>
+                </form>
                 {% else %}
-                    <li><a href="{% url 'registration' %}">Регистрация</a></li>
-                    <form action="{% url 'login_user' %}"  method="post">
-                        {% csrf_token %}
-                        <input type="text" name="username" class="btr">
-                        <input type="password" name="password" class="btr">
-                        <button type="submit" class="btr">Вход</button>
-                    </form>
+                <li><a href="{% url 'registration' %}">Регистрация</a></li>
+
+                <form action="{% url 'login_user' %}" method="post" class="form">
+                    {% csrf_token %}
+                    <input type="text" name="username">
+                    <input type="password" name="password">
+                    <button type="submit">Вход</button>
+                </form>
                 {% endif %}
             </ul>
         </div>
-                {% block content %}
-                {% endblock %}
-        </div>
+        {% block content %}
+        {% endblock %}
     </div>
+</div>
 </div>
 </body>
 </html>

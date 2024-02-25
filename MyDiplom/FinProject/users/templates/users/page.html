@@ -1,0 +1,21 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block content %}
+
+{% for page in users_name %}
+
+<div class="cent_cont">
+    <div class="lf_cont">
+        <a href="{% url 'user_blog' page.username_id %}">
+            <div><img src="{{ page.image.url }}" alt="" class="avatar"></div>
+        </a>
+    </div>
+    <div class="c_cont">
+        <h2>{{ page.username }}</h2>
+        <h4>{{ page.title }}</h4>
+    </div>
+
+</div>
+
+{% endfor %}
+{% endblock %}

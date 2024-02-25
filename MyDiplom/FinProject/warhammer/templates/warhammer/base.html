@@ -16,7 +16,9 @@
         <div class="shapka">
             <ul class="uli">
                 <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'page_user' %}">Пользователи</a></li>
                 {% if user.is_authenticated %}
+                    <li><a href="{% url 'user_blog' user.id %}">Личный кобинет</a></li>
                     <form action="{% url 'logout_user' %}" method="post">
                         {% csrf_token %}
                         <li><button class="btr">Выход</button></li>

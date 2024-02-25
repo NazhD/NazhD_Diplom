@@ -35,13 +35,11 @@ function dispaySize(){
     }
     else{
         console.log(wrap);
-        wrap.style.flexDirection = 'row';
-        wrap.style.justifyContent = 'space-around';
-        leftContent.style.margin = '3% 1%'
         st.textContent = 'По центру';
-        st.style.color = 'rgb(91, 241, 241)';
-        colum.style.flexDirection = 'column';
-        colum.style.justifyContent = 'flex-start'
+        st.style = '';
+        wrap.style = '';
+        leftContent.style = ''
+        colum.style = '';
     };
 };
 

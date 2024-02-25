@@ -25,7 +25,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('image/', views.load_images, name='load-images'),
     path('video/', views.load_video, name='load-video'),
-    path('video/<int:video_id>/', views.video_play, name='video-play'),
+    path('video/<str:video_id>/', views.video_play, name='video-play'),
     path('user/', include('users.urls')),
 
 ]

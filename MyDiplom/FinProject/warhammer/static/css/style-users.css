@@ -36,13 +36,13 @@ body{
     margin: auto 20px;
     border-radius: 2px;
 }
+
 .uli{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1% 0;
+    padding: 20px 0;
     box-shadow: inset 5px 0 40px rgb(136, 128, 128);
-    border-radius: 2px;
 }
 .uli form input{
     margin: 1% 2%;
