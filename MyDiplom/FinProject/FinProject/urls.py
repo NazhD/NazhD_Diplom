@@ -24,10 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('image/', views.load_images, name='load-images'),
+    path('image/<str:image_id>/', views.image_img, name='image_img'),
     path('video/', views.load_video, name='load-video'),
     path('video/<str:video_id>/', views.video_play, name='video-play'),
     path('user/', include('users.urls')),
-
+    path('profiles/', include('profiles.urls')),
 ]
 
 if settings.DEBUG:

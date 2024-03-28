@@ -1,0 +1,91 @@
+{% extends 'warhammer/base.html' %}
+{% load static %}
+{% block content %}
+{% if page.username_id == user.id  %}
+<h1>Личный кабинет</h1>
+{% else %}
+<h1>Страница пользователя: {{ page.username }}</h1>
+{% endif %}
+<br>
+<h4>Личная информация</h4>
+<div class="cent_cont">
+    <div class="lf_cont">
+        <div><img src="{{ page.image.url }}" alt="" class="avatar"></div>
+        {% if page.username_id == user.id %}
+        <div class="rf_cont">
+            <div class="poisk">
+                <form action="" method="post" enctype="multipart/form-data" class="poisk_users">
+                    {% csrf_token %}
+                    <input type="file" name="file"><input type="submit" value="Изменить">
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="c_cont">
+        <div>
+            <ul>
+                <li>Username</li>
+                <li>Никнейм</li>
+                <li>Email</li>
+                <li>id</li>
+                {% if page.username_id == user.id %}
+                <li>
+                    <div>Изменить никнейм</div>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>{{ page.username }}</li>
+                <li>{{ page.title }}</li>
+                <li>warmagik@yandex.ru</li>
+                <li>{{ page.id }}</li>
+                {% if page.username_id == user.id %}
+                <li>
+                    <form action="" method="post" class="form-us">
+                        {% csrf_token %}
+                        <div class="forma">
+                            <div class="us-name"><input type="text" name="title"><input type="submit"></div>
+                        </div>
+                    </form>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+<div class="poisc_set">
+    <div class="poisk">
+        <form action="{% url 'user_blog' page.username_id %}" class="poisk_users" method="get">
+            <input type="submit" class="submit_btm" value="Картинки" name="btr">
+        </form>
+    </div>
+    <div class="poisk">
+        <form action="{% url 'user_blog' page.username_id %}" class="poisk_users" method="get">
+            <input type="submit" class="submit_btm" value="Видео" name="btr">
+        </form>
+    </div>
+</div>
+
+<br>
+<div class="media">
+    {% for i in baza %}
+        {% if i.author.username == page.username %}
+            <div class="midl">
+                <a href="{% url 'image_img' i.id %}"><img src='{{ i.image.url }}'></a>
+                <div>{{ i.name }}</div>
+                <div>{{ i.author.title }}</div>
+
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+{% for i in video_list %}
+<a href="{% url 'video-play' i.id %}"><img src='{{ i.image.url }}' class="midl"></a>
+{% endfor %}
+{% endblock %}

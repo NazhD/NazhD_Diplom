@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'warhammer.apps.WarhammerConfig',
     'users.apps.UsersConfig',
+    'profiles.apps.ProfilesConfig',
 ]
 
 MIDDLEWARE = [

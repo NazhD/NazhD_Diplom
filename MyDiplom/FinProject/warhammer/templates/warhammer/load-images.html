@@ -1,11 +1,18 @@
 {% extends 'warhammer/base.html' %}
 {% load static %}
 {% block content %}
-<div class="ramka-flex">
-    <div class="images">
+<div class="media">
     {% for i in img %}
-        <img src='{{ i.image.url }}' class="midl">
-    {% endfor %}
+    <div class="midl">
+        <a href="{% url 'image_img' i.id %}"><img src='{{ i.image.url }}'></a>
+        <ul>
+            <li>{{ i.name }}</li>
+            <a href="{% url 'user_blog' i.author.username_id %}"><li>{{ i.author.title }}</li></a>
+        </ul>
     </div>
+    {% endfor %}
 </div>
+
+
+
 {% endblock %}

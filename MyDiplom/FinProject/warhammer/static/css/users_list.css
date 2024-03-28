@@ -1,0 +1,126 @@
+
+.cent_cont{
+    display: flex;
+    margin: 0 auto;
+    box-sizing: border-box;
+    max-width: 100%;
+    justify-content: space-between;
+    opacity: 0.9;
+    justify-content: end;
+}
+.cent_cont a{
+    margin: 0 5px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    width: 20%;
+}
+
+.poisk{
+    background: rgb(18, 18, 20);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.lf_cont{   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    background: rgb(18, 18, 20);
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+}
+.c_cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: rgb(18, 18, 20);
+    padding: 10px;
+    color: bisque;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+}
+.c_cont li{
+    margin: 20px 10px;
+    list-style: none;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 150%;
+}
+.c_cont ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.lf_cont img{
+    box-sizing: border-box;
+    max-height: 100%;
+    max-width: 100%;
+}
+input[type="file"]{
+    width:350px;
+}
+.rf_cont{
+    display: flex;
+    justify-content: space-around;
+    color: bisque;
+    box-sizing: border-box;
+    width: 100%;
+    opacity: 0.9;
+    border: 1px solid black;
+
+}
+.poisc_set{
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    opacity: 0.9;
+    border: 1px solid black;
+    box-shadow: 1px 2px 20px 1px black;
+    
+}
+.poisc_set input{
+    width: 200px;
+}
+
+
+.forma{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+.media{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.midl{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    background: rgb(18, 18, 20);
+    opacity: 0.9;
+    margin: 0 auto;
+    padding: 5px;
+}
+.midl img{
+    min-width: 40%;
+    max-width: 435px;
+    min-height: 200px;
+
+}

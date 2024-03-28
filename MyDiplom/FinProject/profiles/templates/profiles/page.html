@@ -1,0 +1,41 @@
+{% extends 'warhammer/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="poisk">
+    <h1>Пользователи</h1>
+    <form action="{% url 'page_user' %}" class="poisk_users" method="get">
+        <input type="text" name="search_query" class="search_query" value="{{ search_query }}">
+        <input type="submit" class="submit_btm" value="Найти">
+    </form>
+</div>
+<br>
+{% for page in users_name %}
+<div class="cent_cont">
+    <a href="{% url 'user_blog' page.username_id %}">
+        <div class="lf_cont">
+            <img src="{{ page.image.url }}" alt="" class="avatar">
+        </div>
+    </a>
+    <div class="c_cont">
+        <div>
+            <ul>
+                <li>Username</li>
+                <li>Никнейм</li>
+                <li>Email</li>
+                <li>id</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>{{ page.username }}</li>
+                <li>{{ page.title }}</li>
+                <li>warmagik@yandex.ru</li>
+                <li>{{ page.id }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+{% endblock %}

@@ -1,14 +1,9 @@
 {% extends 'warhammer/base.html' %}
-
 {% load static %}
 {% block content %}
-<div class="all-img-vid">
-    {% for i in video_list %}
-        <div class="img-vid">
+{% for i in video_list %}
         <a href="{% url 'video-play' i.id %}"><img src='{{ i.image.url }}' class="midl"></a>
-        </div>
-    {% endfor %}
-</div>
 
+{% endfor %}
 {% endblock %}
 

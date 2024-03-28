@@ -1,0 +1,19 @@
+.poisk{
+    display: flex;
+    justify-content: space-between;
+    margin: auto 2%;
+    border-radius: 1px;
+ 
+}
+.poisk_users input{
+    margin: 20px 5px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+    background: black;
+    color: gray;
+    box-shadow: 2px 1px 5px 1px rgb(0, 0, 0);
+}
+.search_query{
+    width: 50%;
+}

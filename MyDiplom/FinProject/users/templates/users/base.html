@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{% static 'css/style-users.css' %}">
-    <link rel="stylesheet" href="{% static 'css/user_blog.css' %}">
-
 </head>
 <body>
 <div class="base">
@@ -25,7 +23,6 @@
                 </form>
                 {% else %}
                 <li><a href="{% url 'registration' %}">Регистрация</a></li>
-
                 <form action="{% url 'login_user' %}" method="post" class="form">
                     {% csrf_token %}
                     <input type="text" name="username">
@@ -35,8 +32,12 @@
                 {% endif %}
             </ul>
         </div>
-        {% block content %}
-        {% endblock %}
+        <div class="wrap" id="wrap">
+            <div class="left-content" id="left">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
     </div>
 </div>
 </div>
